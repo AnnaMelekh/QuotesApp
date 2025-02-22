@@ -20,8 +20,7 @@ final class CustomTabBarController: UITabBarController {
     
     private func setupTabBar() {
         let mainVC = UINavigationController(rootViewController: MainViewController())
-        
-        let homeVC = mainVC
+
         if let homeImage = UIImage(named: "home") {
             let selectedImage = homeImage.withCircularBackground(color: UIColor(named: "green1")!)?.withRenderingMode(.alwaysOriginal)
             mainVC.tabBarItem = UITabBarItem(title: nil, image: homeImage, selectedImage: selectedImage)
@@ -38,7 +37,7 @@ final class CustomTabBarController: UITabBarController {
             let selectedImage = createImage.withCircularBackground(color: UIColor(named: "green1")!)?.withRenderingMode(.alwaysOriginal)
             createVC.tabBarItem = UITabBarItem(title: nil, image: createImage, selectedImage: selectedImage)
         }
-        self.viewControllers = [bookmarksVC, homeVC, createVC]
+        self.viewControllers = [bookmarksVC, mainVC, createVC]
         
         self.tabBar.tintColor = .black
         self.tabBar.unselectedItemTintColor = .darkGray
