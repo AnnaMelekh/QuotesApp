@@ -62,10 +62,10 @@ class QuoteCell: UITableViewCell {
             quoteLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
             
             bookmarkButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
-            bookmarkButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
+            bookmarkButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
             
             refreshButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
-            refreshButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10)
+            refreshButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20)
         ])
     }
     

@@ -14,8 +14,7 @@ class MainViewController: UIViewController {
     
     var quotes = [
         "The best way to spread Christmas cheer is singing loud for all to hear.",
-        "Happiness is not something ready-made. It comes from your own actions.",
-        "Believe you can and you're halfway there."
+        "Happiness is not something ready-made. It comes from your own actions."
     ]
     
     var filteredQuotes: [String] = []
@@ -43,7 +42,7 @@ private extension MainViewController {
 
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.searchBarStyle = .minimal
-        searchBar.placeholder = "Search"
+        searchBar.placeholder = "Search for the quotes..."
         
     }
     

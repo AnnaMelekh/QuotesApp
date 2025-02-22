@@ -31,11 +31,11 @@ final class CategoryViewController: UIViewController {
     }()
     
     private lazy var familyButton = createButton(title: "Family")
-    private lazy var friendsButton = createButton(title: "Friends")
-    private lazy var workButton = createButton(title: "Work")
+    private lazy var friendsButton = createButton(title: "Friendship")
+    private lazy var workButton = createButton(title: "Success")
     private lazy var healthButton = createButton(title: "Health")
-    private lazy var loveButton = createButton(title: "Love", isHighlighted: true)
-    private lazy var otherButton = createButton(title: "Other")
+    private lazy var loveButton = createButton(title: "Love")
+    private lazy var otherButton = createButton(title: "Happiness")
     
     private lazy var buttonsStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [
@@ -63,7 +63,6 @@ final class CategoryViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("done", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        button.setTitleColor(.white, for: .normal)
         button.tintColor = .black
         button.backgroundColor = UIColor(named: "green1")
         button.layer.cornerRadius = 20
@@ -126,7 +125,7 @@ private extension CategoryViewController {
     }
     
     
-    func createButton(title: String, isHighlighted: Bool = false) -> UIButton {
+    func createButton(title: String) -> UIButton {
         let button = UIButton(type: .system)
         button.setTitle(title, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
@@ -144,6 +143,53 @@ private extension CategoryViewController {
     
     
     @objc func categoryButtonTapped(_ sender: UIButton) {
+            familyButton.isSelected = false
+            friendsButton.isSelected = false
+            workButton.isSelected = false
+            healthButton.isSelected = false
+            loveButton.isSelected = false
+            otherButton.isSelected = false
+
+            sender.backgroundColor = UIColor(named: "green1")
+
+            switch sender {
+            case familyButton:
+                friendsButton.backgroundColor = UIColor(named: "grey1")
+                workButton.backgroundColor = UIColor(named: "grey1")
+                healthButton.backgroundColor = UIColor(named: "grey1")
+                loveButton.backgroundColor = UIColor(named: "grey1")
+                otherButton.backgroundColor = UIColor(named: "grey1")
+             case friendsButton:
+                familyButton.backgroundColor = UIColor(named: "grey1")
+                workButton.backgroundColor = UIColor(named: "grey1")
+                healthButton.backgroundColor = UIColor(named: "grey1")
+                loveButton.backgroundColor = UIColor(named: "grey1")
+                otherButton.backgroundColor = UIColor(named: "grey1")
+             case workButton:
+                familyButton.backgroundColor = UIColor(named: "grey1")
+                friendsButton.backgroundColor = UIColor(named: "grey1")
+                healthButton.backgroundColor = UIColor(named: "grey1")
+                loveButton.backgroundColor = UIColor(named: "grey1")
+                otherButton.backgroundColor = UIColor(named: "grey1")
+             case healthButton:
+                familyButton.backgroundColor = UIColor(named: "grey1")
+                friendsButton.backgroundColor = UIColor(named: "grey1")
+                workButton.backgroundColor = UIColor(named: "grey1")
+                loveButton.backgroundColor = UIColor(named: "grey1")
+                otherButton.backgroundColor = UIColor(named: "grey1")
+             case loveButton:
+                familyButton.backgroundColor = UIColor(named: "grey1")
+                friendsButton.backgroundColor = UIColor(named: "grey1")
+                workButton.backgroundColor = UIColor(named: "grey1")
+                healthButton.backgroundColor = UIColor(named: "grey1")
+                otherButton.backgroundColor = UIColor(named: "grey1")
+             default:
+                familyButton.backgroundColor = UIColor(named: "grey1")
+                friendsButton.backgroundColor = UIColor(named: "grey1")
+                workButton.backgroundColor = UIColor(named: "grey1")
+                healthButton.backgroundColor = UIColor(named: "grey1")
+                loveButton.backgroundColor = UIColor(named: "grey1")
+             }
     }
     
     @objc func doneTapped() {

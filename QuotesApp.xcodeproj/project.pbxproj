@@ -16,6 +16,7 @@
 		F33CD2722D6930C200123844 /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33CD2712D6930C200123844 /* Tabbar.swift */; };
 		F33CD2742D6A5C5300123844 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33CD2732D6A5C5300123844 /* CategoryViewController.swift */; };
 		F33CD2762D6A66F100123844 /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33CD2752D6A66F100123844 /* QuoteCell.swift */; };
+		F33CD2782D6A721600123844 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33CD2772D6A721600123844 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F33CD2712D6930C200123844 /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
 		F33CD2732D6A5C5300123844 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		F33CD2752D6A66F100123844 /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
+		F33CD2772D6A721600123844 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				F33CD2752D6A66F100123844 /* QuoteCell.swift */,
 				F33CD2732D6A5C5300123844 /* CategoryViewController.swift */,
 				F33CD2712D6930C200123844 /* Tabbar.swift */,
+				F33CD2772D6A721600123844 /* NetworkService.swift */,
 				F33CD2632D692E0400123844 /* Main.storyboard */,
 				F33CD2662D692E0600123844 /* Assets.xcassets */,
 				F33CD2682D692E0600123844 /* LaunchScreen.storyboard */,
@@ -153,6 +156,7 @@
 				F33CD25E2D692E0400123844 /* AppDelegate.swift in Sources */,
 				F33CD2602D692E0400123844 /* SceneDelegate.swift in Sources */,
 				F33CD2722D6930C200123844 /* Tabbar.swift in Sources */,
+				F33CD2782D6A721600123844 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
