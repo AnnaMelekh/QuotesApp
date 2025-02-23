@@ -8,7 +8,7 @@
 import UIKit
 
 protocol NetworkServiceDelegate {
-    func didUpdateData(quotes: QuoteModel)
+    func didUpdateData(quotes: [QuoteModel])
     func didFailWithError(error: Error)
 }
 
@@ -18,7 +18,7 @@ struct NetworkService {
     var delegate: NetworkServiceDelegate?
 
 
-    func performRequest(with urlString: String) {
+    func performRequest() {
         let url = URL(string: "https://api.api-ninjas.com/v1/quotes")!
         var request = URLRequest(url: url)
         request.setValue("37dzcC9ewolb+jdrMMi3ZQ==rm21imKoXto6vJJd", forHTTPHeaderField: "X-Api-Key")
@@ -43,20 +43,23 @@ struct NetworkService {
         }
     
     
-    func parseJSON(_ quoteData: Data) -> QuoteModel? {
+    func parseJSON(_ quoteData: Data) -> [QuoteModel]? {
         let decoder = JSONDecoder()
         
         do {
-            let decodedData = try decoder.decode(QuoteData.self, from: quoteData)
+            let decodedData = try decoder.decode([QuoteData].self, from: quoteData)
             
-            let quoteModel = QuoteModel(
-                    quote: decodedData.quote,
-                    author: decodedData.author,
-                    category: decodedData.category
-                )
+            var quotesArray: [QuoteModel] = decodedData.map { quote in
+                    QuoteModel(
+                        quote: quote.quote,
+                        author: quote.author,
+                        category: quote.category
+                    )
+                }
 
-                print(quoteModel)
-            return quoteModel
+                print(quotesArray) 
+
+                return quotesArray
             
         } catch {
             print("Ошибка декодирования: \(error)")

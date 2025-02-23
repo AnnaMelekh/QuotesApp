@@ -85,7 +85,8 @@ class QuoteCell: UITableViewCell {
         ])
     }
     
-    func configure(with quote: String) {
-        quoteLabel.text = quote
+    func configure(with quote: QuoteModel) {
+        quoteLabel.text = quote.quote
+        authorLabel.text = quote.author
     }
 }

@@ -10,12 +10,8 @@ import UIKit
 class MainViewController: UIViewController {
     
     private lazy var tableView = UITableView()
-    
-    var quotes = [
-        "The best way to spread Christmas cheer is singing loud for all to hear.",
-        "Happiness is not something ready-made. It comes from your own actions."
-    ]
-
+    var quotes: [QuoteModel] = []
+    var networkService = NetworkService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +20,9 @@ class MainViewController: UIViewController {
         setupTableView()
         setupNavbar()
         setupConstraints()
+        networkService.delegate = self
+        networkService.performRequest()
+
     }
     
     
@@ -78,7 +77,7 @@ private extension MainViewController {
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         1
+        quotes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,6 +85,21 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(with: quotes[indexPath.row])
         return cell
     }
+}
+
+extension MainViewController: NetworkServiceDelegate {
+    func didUpdateData(quotes: [QuoteModel]) {
+        DispatchQueue.main.async {
+            self.quotes = quotes
+            self.tableView.reloadData()
+        }
+    }
+    
+    func didFailWithError(error: any Error) {
+        print(error.localizedDescription)
+    }
+    
+    
 }
 
 

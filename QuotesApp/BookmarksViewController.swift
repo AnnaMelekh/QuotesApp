@@ -12,7 +12,7 @@ final class BookmarksViewController: UIViewController {
     private lazy var searchBar = UISearchBar()
     private lazy var tableView = UITableView()
 
-    var quotes: [String] = []
+    var quotes: [QuoteModel] = []
     var filteredQuotes: [String] = []
     var isSearching = false
     
@@ -79,11 +79,11 @@ extension BookmarksViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension BookmarksViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            filteredQuotes = quotes
-        } else {
-            filteredQuotes = quotes.filter { $0.lowercased().contains(searchText.lowercased()) }
-        }
+//        if searchText.isEmpty {
+//            filteredQuotes = quotes
+//        } else {
+//            filteredQuotes = quotes.filter { $0.lowercased().contains(searchText.lowercased()) }
+//        }
         tableView.reloadData()
     }
     
