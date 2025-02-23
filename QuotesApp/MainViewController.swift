@@ -22,7 +22,8 @@ class MainViewController: UIViewController {
         setupConstraints()
         networkService.delegate = self
         networkService.performRequest()
-
+        
+        
     }
     
     
@@ -32,7 +33,7 @@ private extension MainViewController {
     
     func setupUI() {
         view.backgroundColor = .white
-
+        
     }
     
     func setupTableView() {
@@ -69,6 +70,45 @@ private extension MainViewController {
         navigationItem.rightBarButtonItem = categoriesButton
     }
     
+    @objc func bookmarkTapped(_ sender: UIButton) {
+        var superview = sender.superview
+            while let view = superview, !(view is QuoteCell) {
+                superview = view.superview
+            }
+
+            guard let cell = superview as? QuoteCell,
+                  let indexPath = tableView.indexPath(for: cell) else {
+                return
+            }
+
+            let quote = quotes[indexPath.row]
+            BookmarkManager.shared.saveQuote(quote)
+
+            print("Quote saved:", quote)
+        NotificationCenter.default.post(name: NSNotification.Name("QuoteAdded"), object: quote)
+
+
+            sender.setImage(UIImage(named: "bookmarkFill")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            sender.tintColor = UIColor.systemGray
+        
+    }
+    
+    @objc func refreshTapped(_ sender: UIButton) {
+        networkService.performRequest()
+        
+        var superview = sender.superview
+            while let view = superview, !(view is QuoteCell) {
+                superview = view.superview
+            }
+
+            guard let cell = superview as? QuoteCell,
+                  let indexPath = tableView.indexPath(for: cell) else {
+                return
+            }
+        cell.bookmarkButton.setImage(UIImage(named: "bookmark"), for: .normal)
+        
+    }
+    
     @objc func categoriesButtonTapped() {
         let categoriesVC = CategoryViewController()
         navigationController?.pushViewController(categoriesVC, animated: true)
@@ -83,6 +123,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteCell", for: indexPath) as! QuoteCell
         cell.configure(with: quotes[indexPath.row])
+        
+        cell.bookmarkButton.addTarget(self, action: #selector(bookmarkTapped), for: .touchUpInside)
+        cell.refreshButton.addTarget(self, action: #selector(refreshTapped), for: .touchUpInside)
+        
         return cell
     }
 }

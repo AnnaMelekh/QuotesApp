@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct QuoteModel {
+struct QuoteModel: Codable {
     var quote: String
     var author: String
     var category: String

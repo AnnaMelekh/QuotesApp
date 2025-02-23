@@ -21,8 +21,8 @@ class QuoteCell: UITableViewCell {
     
     private lazy var quoteLabel = UILabel()
     private lazy var containerView = UIView()
-    private lazy var bookmarkButton = UIButton(type: .system)
-    private lazy var refreshButton = UIButton(type: .system)
+    lazy var bookmarkButton = UIButton(type: .system)
+    lazy var refreshButton = UIButton(type: .system)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

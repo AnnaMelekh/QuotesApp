@@ -20,6 +20,7 @@
 		F33CD27A2D6A771200123844 /* QuoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33CD2792D6A771200123844 /* QuoteData.swift */; };
 		F33CD27C2D6A771C00123844 /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33CD27B2D6A771C00123844 /* QuoteModel.swift */; };
 		F33CD27E2D6B3EA500123844 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33CD27D2D6B3EA500123844 /* BookmarksViewController.swift */; };
+		F33CD2802D6B65C300123844 /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33CD27F2D6B65C300123844 /* BookmarkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		F33CD2792D6A771200123844 /* QuoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteData.swift; sourceTree = "<group>"; };
 		F33CD27B2D6A771C00123844 /* QuoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
 		F33CD27D2D6B3EA500123844 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		F33CD27F2D6B65C300123844 /* BookmarkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				F33CD25D2D692E0400123844 /* AppDelegate.swift */,
 				F33CD25F2D692E0400123844 /* SceneDelegate.swift */,
 				F33CD2612D692E0400123844 /* MainViewController.swift */,
+				F33CD27F2D6B65C300123844 /* BookmarkManager.swift */,
 				F33CD27D2D6B3EA500123844 /* BookmarksViewController.swift */,
 				F33CD2752D6A66F100123844 /* QuoteCell.swift */,
 				F33CD2732D6A5C5300123844 /* CategoryViewController.swift */,
@@ -166,6 +169,7 @@
 				F33CD2622D692E0400123844 /* MainViewController.swift in Sources */,
 				F33CD25E2D692E0400123844 /* AppDelegate.swift in Sources */,
 				F33CD2602D692E0400123844 /* SceneDelegate.swift in Sources */,
+				F33CD2802D6B65C300123844 /* BookmarkManager.swift in Sources */,
 				F33CD27C2D6A771C00123844 /* QuoteModel.swift in Sources */,
 				F33CD2722D6930C200123844 /* Tabbar.swift in Sources */,
 				F33CD2782D6A721600123844 /* NetworkService.swift in Sources */,
