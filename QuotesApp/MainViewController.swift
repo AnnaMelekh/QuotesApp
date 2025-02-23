@@ -9,17 +9,13 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    private lazy var searchBar = UISearchBar()
     private lazy var tableView = UITableView()
     
     var quotes = [
         "The best way to spread Christmas cheer is singing loud for all to hear.",
         "Happiness is not something ready-made. It comes from your own actions."
     ]
-    
-    var filteredQuotes: [String] = []
-    var isSearching = false
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +33,7 @@ private extension MainViewController {
     
     func setupUI() {
         view.backgroundColor = .white
-        
-        view.addSubview(searchBar)
 
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.searchBarStyle = .minimal
-        searchBar.placeholder = "Search for the quotes..."
-        
     }
     
     func setupTableView() {
@@ -57,16 +47,11 @@ private extension MainViewController {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            searchBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
-            searchBar.heightAnchor.constraint(equalToConstant: 90),
-            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 1),
+            tableView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            tableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     
@@ -93,7 +78,7 @@ private extension MainViewController {
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return quotes.count
+         1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -103,23 +88,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension MainViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            filteredQuotes = quotes
-        } else {
-            filteredQuotes = quotes.filter { $0.lowercased().contains(searchText.lowercased()) }
-        }
-        tableView.reloadData()
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
-        isSearching = false
-        tableView.reloadData()
-        searchBar.resignFirstResponder()
-    }
-}
+
 
 
 #Preview {MainViewController() }

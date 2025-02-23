@@ -9,21 +9,31 @@ import UIKit
 
 class QuoteCell: UITableViewCell {
     
+    private lazy var authorLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Optima", size: 14)
+        label.textColor = .darkGray
+        label.textAlignment = .center
+        label.text = "Author"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private lazy var quoteLabel = UILabel()
     private lazy var containerView = UIView()
     private lazy var bookmarkButton = UIButton(type: .system)
     private lazy var refreshButton = UIButton(type: .system)
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
         setupUI()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private func setupUI() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
         containerView.backgroundColor = UIColor(named: "yellow1") ?? UIColor.yellow
@@ -49,14 +59,17 @@ class QuoteCell: UITableViewCell {
         refreshButton.setImage(UIImage(named: "refresh"), for: .normal)
         refreshButton.tintColor = .systemGray
         containerView.addSubview(refreshButton)
-
+        
+        containerView.addSubview(authorLabel)
+        
+        
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             containerView.heightAnchor.constraint(equalToConstant: 250),
-
+            
             quoteLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             quoteLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
             quoteLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
@@ -65,7 +78,10 @@ class QuoteCell: UITableViewCell {
             bookmarkButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
             
             refreshButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
-            refreshButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20)
+            refreshButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
+            
+            authorLabel.topAnchor.constraint(equalTo: quoteLabel.bottomAnchor, constant: 10),
+            authorLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
         ])
     }
     

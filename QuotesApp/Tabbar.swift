@@ -26,7 +26,7 @@ final class CustomTabBarController: UITabBarController {
             mainVC.tabBarItem = UITabBarItem(title: nil, image: homeImage, selectedImage: selectedImage)
         }
         
-        let bookmarksVC = UIViewController()
+        let bookmarksVC = UINavigationController(rootViewController: BookmarksViewController())
         if let bookmarkImage = UIImage(named: "bookmark") {
             let selectedImage = bookmarkImage.withCircularBackground(color: UIColor(named: "green1")!)?.withRenderingMode(.alwaysOriginal)
             bookmarksVC.tabBarItem = UITabBarItem(title: nil, image: bookmarkImage, selectedImage: selectedImage)
